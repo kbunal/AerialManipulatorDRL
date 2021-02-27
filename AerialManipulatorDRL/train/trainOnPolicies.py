@@ -17,7 +17,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "" # not use gpu since performance becomes 
 
 policy_kwargs =dict(net_arch =[dict(pi=[128,128],vf=[128,128])])
 log_dir = "../logs/"
-SelectPolicy =0
+SelectPolicy =2
 env = gym.make("quad-withArm_1Dof-v0")
 
 

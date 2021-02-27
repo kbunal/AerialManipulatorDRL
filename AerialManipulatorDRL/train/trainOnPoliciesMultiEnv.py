@@ -18,7 +18,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "" # not use gpu since performance becomes 
 policy_kwargs =dict(net_arch =[dict(pi=[128,128],vf=[128,128])])
 log_dir = "../logs/"
 n_env =4 
-SelectPolicy =0
+SelectPolicy =1
 
 
 def make_env(env_id,logdir,i):
