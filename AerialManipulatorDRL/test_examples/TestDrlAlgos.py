@@ -6,7 +6,6 @@ import AerialManipulatorDRL
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-from gym_foo.controllers.pid_quad import PDpolicy
 import Box2D as b2
 import time
 
@@ -29,7 +28,7 @@ env = DummyVecEnv([lambda: env])
 
 #model = TRPO.load("../benchmarkResults/TRPO/best_modelbest_model7960149with_mean_rew1439.38035615")
 
-#model = PPO2.load("../benchmarkResults/PPO/best_model1454735with_mean_rew911.7128571.pkl")
+#model = PPO2.load("../benchmarkResults/PPO/best_modelbest_model3438993with_mean_rew1411.260739")
 
 
 #model = DDPG.load("../benchmarkResults/DDPG/best_modelbest_model2061085with_mean_rew1158.69359315")
