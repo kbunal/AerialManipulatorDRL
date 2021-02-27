@@ -1,16 +1,20 @@
 # AerialManipulatorDRL
 A comparative study between deep reinforcement learning approaches and conventional controller for aerial manipulation pick and place task
 
--Authors: Kazım Burak Ünal, Sinan Kalkan, Afşar Saranlı
--Paper: -
+*Authors: Kazım Burak Ünal, Sinan Kalkan, Afşar Saranlı
+
+*Paper: -
 
 ## Dependencies
--stablebaselines
--Box2D
+
+*stablebaselines
+
+*Box2D
 
 ## Installation
 
 ### Step 0
+
 Create a directory for the project:
 
 mkdir ~/AerialManipulatorDRL
