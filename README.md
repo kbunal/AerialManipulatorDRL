@@ -7,9 +7,11 @@ A comparative study between deep reinforcement learning approaches and conventio
 
 ## Dependencies
 
-*stablebaselines
+*Stable Baselines
 
 *Box2D
+
+*Gym
 
 ## Installation
 
@@ -53,11 +55,11 @@ pip install -e .
 
 ## Experiments
 
-### Testing benchmark results
+### Testing Experiment Results
 Example runs for the benchmark results is in test_examples folder
 
 ### Plotting
-For the DRL algorithms stablebaselines plotting tool is used. The benchmark training result are stored in benchmarkResults folder unbder the name monitor.csv. Plots can be obtained using stableBaselines load_result function.
+For the DRL algorithms stablebaselines plotting tool is used. The benchmark training result are stored in ExperimentResults folder unbder the name monitor.csv. Plots can be obtained using stableBaselines load_result function.
 
 ### Training
 Example training algorithms are in train folder.
