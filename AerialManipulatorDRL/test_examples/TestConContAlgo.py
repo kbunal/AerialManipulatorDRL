@@ -30,8 +30,11 @@ env = gym.make("quad-withArm_1Dof-v0")
 
 
 env.set_init_pos = [trajck_x[0],trajck_y[0]]
-env.IsRandomDesPosTrain =True
-env.set_des_pos = [-0.1,0.1]
+IsRandomDes =env.IsRandomDesPosTrain
+
+#tell a destination goal if the environment requries oe
+if IsRandomDes:
+	env.set_des_pos = [-0.1,0.1]
 """
 env.init_dist_vel = 0
 env.init_dist_ang = 0
@@ -45,6 +48,8 @@ env = DummyVecEnv([lambda: env])
 
 obs = env.reset()
 
+
+
 obs_list = [obs]
 act_list = [np.array([[0, 0]])]
 actPD_list = [np.array([[0, 0]])]
@@ -56,7 +61,7 @@ timeList=[]
 #params = [ 4.45426533,  2.88644787,  3.23454352,  2.57224364, 11.79429913,  2.40245654] # 2397.9 (better in 20 points)
 for i in range(600):
     start = time.time()
-    actionPD, _states = PDpolicy_Arm_Trac_1_DOF(obs,forceMax,i,trajck_x,trajck_y,track_beta,track_vx,track_vy, params)
+    actionPD, _states = PDpolicy_Arm_Trac_1_DOF(obs,forceMax,i,trajck_x,trajck_y,track_beta,track_vx,track_vy,IsRandomDes, params)
     end = time.time()
     #print(end-start)
     duration = end-start
@@ -78,11 +83,18 @@ print(" episode lenght", counterLenght)
 meanTime = np.mean(timeList)
 print("Average Time for one step:", meanTime )
 obs_list = np.array(obs_list)
-posx = obs_list[:, :, 0]
-posy = obs_list[:, :, 1]
-velx = obs_list[:, :, 8]
-vely = obs_list[:, :, 9]
-betaAngle = obs_list[:, :, 15]
+if IsRandomDes:
+	posx = obs_list[:, :, 0]
+	posy = obs_list[:, :, 1]
+	velx = obs_list[:, :, 8]
+	vely = obs_list[:, :, 9]
+	betaAngle = obs_list[:, :, 15]
+else:
+	posx = obs_list[:, :, 0]
+	posy = obs_list[:, :, 1]
+	velx = obs_list[:, :, 6]
+	vely = obs_list[:, :, 7]
+	betaAngle = obs_list[:, :, 13]
 time_step = 0.01
 l = posx.shape[0]
 t = np.arange(0, time_step*l-0.00001, time_step)
@@ -123,15 +135,6 @@ plt.xlabel("time (s)",fontsize=13)
 plt.ylabel("Joint Angle (rad) ",fontsize=13)
 plt.legend(loc='upper left',fontsize=14)
 
-#plt.figure()
-#plt.plot(t,betaAngle)
-plt.figure()
-
-plt.grid()
-plt.scatter(trajck_x,trajck_y)
-plt.title("Random Starting Points")
-plt.xlabel("x position (m)")
-plt.ylabel("y position (m) ")
 
 plt.show()
 

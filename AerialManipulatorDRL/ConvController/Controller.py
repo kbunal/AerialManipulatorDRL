@@ -7,14 +7,22 @@ import matplotlib.pyplot as plt
 
 
 
-def PDpolicy_Arm_Trac_1_DOF(obs,f_max,step,trajck_x,trajck_y,track_beta,track_vx,track_vy, PD_params = None):
+def PDpolicy_Arm_Trac_1_DOF(obs,f_max,step,trajck_x,trajck_y,track_beta,track_vx,track_vy,IsRandomDes, PD_params = None):
     #print(obs)
+
     obs = obs[0]
-    pos = np.array([obs[0], obs[1]])
-    vel = np.array([obs[8], obs[9]])
-    ang = obs[10]
-    avel = obs[11]
-    tailAngle = obs[15]
+    if IsRandomDes:
+        pos = np.array([obs[0], obs[1]])
+        vel = np.array([obs[8], obs[9]])
+        ang = obs[10]
+        avel = obs[11]
+        tailAngle = obs[15]
+    else:
+        pos = np.array([obs[0], obs[1]])
+        vel = np.array([obs[6], obs[7]])
+        ang = obs[8]
+        avel = obs[9]
+        tailAngle = obs[13]
 
    
     desPos = np.array([trajck_x[step], trajck_y[step]])
@@ -53,9 +61,8 @@ def PDpolicy_Arm_Trac_1_DOF(obs,f_max,step,trajck_x,trajck_y,track_beta,track_vx
         f = 0
 
 
-    #written for non beta tracjectory tests
+    #finger control
     if (np.abs(pos[0]) <= 0.1 and  np.abs(pos[1]) <= 0.1  ):
-        fingerSpeed =1;
         fingerSpeed =1;
     else:
         fingerSpeed = 0;
