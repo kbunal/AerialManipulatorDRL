@@ -23,22 +23,22 @@ env = DummyVecEnv([lambda: env])
 
 
 
-#model = A2C.load("../benchmarkResults/A2C/best_modelbest_model7117969with_mean_rew1359.93819355")
+#model = A2C.load("../ExperimentResults/A2C/best_modelbest_model7117969with_mean_rew1359.93819355")
 
 
-#model = TRPO.load("../benchmarkResults/TRPO/best_modelbest_model7960149with_mean_rew1439.38035615")
+#model = TRPO.load("../ExperimentResults/TRPO/best_modelbest_model7960149with_mean_rew1439.38035615")
 
-#model = PPO2.load("../benchmarkResults/PPO/best_modelbest_model3438993with_mean_rew1411.260739")
-
-
-#model = DDPG.load("../benchmarkResults/DDPG/best_modelbest_model2061085with_mean_rew1158.69359315")
+#model = PPO2.load("../ExperimentResults/PPO/best_modelbest_model3438993with_mean_rew1411.260739")
 
 
-model = TD3.load("../benchmarkResults/TD3/best_modelbest_model2080313with_mean_rew1251.64180435")
+#model = DDPG.load("../ExperimentResults/DDPG/best_modelbest_model2061085with_mean_rew1158.69359315")
+
+
+model = TD3.load("../ExperimentResults/TD3/best_modelbest_model2080313with_mean_rew1251.64180435")
 
 
 
-#model = SAC.load("../benchmarkResults/SAC/best_modelbest_model2750875with_mean_rew1312.1644071")
+#model = SAC.load("../ExperimentResults/SAC/best_modelbest_model2750875with_mean_rew1312.1644071")
 
 
 
